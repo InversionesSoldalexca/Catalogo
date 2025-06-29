@@ -1,127 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Catálogo de Servicios - Soldalexca</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #212529;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-    }
-    nav {
-      background-color: #343a40;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: #ffffffcc;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #ffc107;
-    }
-    .catalogo {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
-    }
-    .servicio {
-      background-color: white;
-      margin: 15px;
-      padding: 20px;
-      border-radius: 10px;
-      width: 280px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-    .servicio:hover {
-      transform: translateY(-5px);
-    }
-    .servicio h3 {
-      color: #212529;
-    }
-    .servicio p {
-      font-size: 14px;
-      color: #444;
-    }
-    footer {
-      background-color: #212529;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo | Inversiones y Construcciones Soldalexca</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header>
-    <h1>Soldalexca</h1>
-    <p>Soldadura con propósito, precisión y confianza</p>
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo Soldalexca" onerror="this.style.display='none'">
+    </div>
+    <h1>Catálogo de Productos y Servicios</h1>
+    <h2>Inversiones y Construcciones Soldalexca</h2>
   </header>
-
-  <nav>
-    <a href="#catalogo">Catálogo</a>
-    <a href="#contacto">Contacto</a>
-    <a href="#vision">Nuestra Visión</a>
-  </nav>
-
-  <section class="catalogo" id="catalogo">
-    <!-- Servicios inyectados por JS -->
-  </section>
-
-  <footer id="vision">
-    <p>"Construimos más que uniones metálicas; forjamos confianza, calidad y visión para el futuro."</p>
-    <p>© 2025 Grupo Soldalexca</p>
+  <main>
+    <section id="gallery-section">
+      <h3>Nuestros Proyectos</h3>
+      <div class="film-strip" id="film-strip">
+        <!-- Las imágenes se insertan aquí por JS -->
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Inversiones y Construcciones Soldalexca</p>
   </footer>
-
-  <script>
-    const servicios = [
-      {
-        nombre: "Soldadura Industrial",
-        descripcion: "Uniones estructurales de alto calibre para instalaciones industriales, cumpliendo con normas internacionales."
-      },
-      {
-        nombre: "Soldadura TIG/MIG",
-        descripcion: "Precisión y acabado superior para componentes delicados o de exigencia estética."
-      },
-      {
-        nombre: "Mantenimiento de Equipos",
-        descripcion: "Reparación, refuerzo y mantenimiento preventivo de maquinaria pesada o de producción."
-      },
-      {
-        nombre: "Diseño y Fabricación",
-        descripcion: "Estructuras metálicas a medida, desde pasamanos hasta sistemas modulares adaptados a tu proyecto."
-      },
-      {
-        nombre: "Servicios a Domicilio",
-        descripcion: "Soldadores calificados directamente en campo o en tu planta, con soluciones eficientes y seguras."
-      }
-    ];
-
-    const contenedor = document.getElementById("catalogo");
-    servicios.forEach(item => {
-      const div = document.createElement("div");
-      div.className = "servicio";
-      div.innerHTML = `<h3>${item.nombre}</h3><p>${item.descripcion}</p>`;
-      contenedor.appendChild(div);
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
