@@ -2,28 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Catálogo | Inversiones y Construcciones Soldalexca</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Catálogo Animado | Soldalexca</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="assets/logo.png" alt="Logo Soldalexca" onerror="this.style.display='none'">
-    </div>
-    <h1>Catálogo de Productos y Servicios</h1>
-    <h2>Inversiones y Construcciones Soldalexca</h2>
+    <div class="logo">Soldalexca</div>
+    <h1>Catálogo Animado de Proyectos</h1>
+    <p>¡Explora nuestras animaciones y descubre la innovación en cada proyecto!</p>
   </header>
   <main>
-    <section id="gallery-section">
-      <h3>Nuestros Proyectos</h3>
-      <div class="film-strip" id="film-strip">
-        <!-- Las imágenes se insertan aquí por JS -->
-      </div>
+    <section class="film-strip-container">
+      <div id="film-strip" class="film-strip"></div>
     </section>
   </main>
   <footer>
-    <p>&copy; 2025 Inversiones y Construcciones Soldalexca</p>
+    <span>&copy; <span id="current-year"></span> Inversiones Soldalexca CA. Todos los derechos reservados.</span>
   </footer>
   <script src="script.js"></script>
 </body>
