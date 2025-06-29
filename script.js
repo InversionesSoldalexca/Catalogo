@@ -1,39 +1,39 @@
-// Este script escanea la carpeta 'assets' buscando imágenes y las coloca en la galería
-// NOTA: Por restricciones de seguridad de los navegadores, el escaneo automático del directorio solo funciona en servidores (no en archivos locales).
-// Para hacerlo funcionar localmente, debes poner las imágenes en 'assets/' y luego agregar sus nombres aquí o bien usar un generador de archivos JS.
+// Galería animada de "frames" con animaciones llamativas.
 
-const assetsPath = 'assets/';
-const imageList = [
-  // Añade aquí el nombre de tus imágenes:
-  'proyecto1.jpg',
-  'proyecto2.jpg',
-  'proyecto3.jpg',
-  'proyecto4.jpg',
-  'proyecto5.jpg',
-  // ...agrega más imágenes según tus assets
+const animationList = [
+  'anim-bounce',
+  'anim-rotate',
+  'anim-flip',
+  'anim-scale',
+  'anim-pulse',
+  'anim-shake',
+  'anim-heart',
+  'anim-waves',
 ];
 
 const captions = [
-  "Edificio residencial",
-  "Remodelación integral",
-  "Obra industrial",
-  "Construcción en altura",
-  "Viviendas modernas",
-  // ...puedes modificar o ampliar captions
+  "Rebote alegre",
+  "Rotación hipnótica",
+  "Flip 3D sorprendente",
+  "Crecimiento dinámico",
+  "Pulso vibrante",
+  "Terremoto divertido",
+  "Latido apasionado",
+  "Olas energéticas",
 ];
 
-function createFilmFrame(imgSrc, caption) {
+const emojis = [
+  "⚽", "🌎", "💫", "🌀", "🔵", "🟣", "💖", "🌊"
+];
+
+function createFilmFrame(animationClass, caption, emoji) {
   const frame = document.createElement('div');
   frame.className = 'film-frame';
-  const img = document.createElement('img');
-  img.src = assetsPath + imgSrc;
-  img.alt = caption || 'Proyecto Soldalexca';
-  img.loading = "lazy";
-  img.onerror = function() { 
-    this.src = 'assets/placeholder.png'; 
-    this.alt='Imagen no disponible';
-  };
-  frame.appendChild(img);
+
+  const animDiv = document.createElement('div');
+  animDiv.className = `film-anim ${animationClass}`;
+  animDiv.textContent = emoji || "⭐";
+  frame.appendChild(animDiv);
 
   const cap = document.createElement('div');
   cap.className = 'film-caption';
@@ -52,28 +52,31 @@ function createFilmFrame(imgSrc, caption) {
 // Pinta la galería
 function renderFilmStrip() {
   const filmStrip = document.getElementById('film-strip');
-  imageList.forEach((img, idx) => {
+  filmStrip.innerHTML = '';
+  animationList.forEach((anim, idx) => {
     filmStrip.appendChild(
-      createFilmFrame(img, captions[idx] || `Proyecto ${idx+1}`)
+      createFilmFrame(anim, captions[idx] || `Animación ${idx + 1}`, emojis[idx] || "✨")
     );
   });
 }
 
-// Animación de movimiento automático del rollo
+// Animación de movimiento automático del strip
 function autoScrollFilmStrip() {
   const strip = document.getElementById('film-strip');
   let direction = 1;
   setInterval(() => {
     if (!strip.matches(':hover')) {
-      strip.scrollLeft += 1.1 * direction;
+      strip.scrollLeft += 1.35 * direction;
       // rebote automático
       if (strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 5) direction = -1;
       if (strip.scrollLeft <= 0) direction = 1;
     }
-  }, 20);
+  }, 16);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   renderFilmStrip();
   autoScrollFilmStrip();
+  // Año automático para el footer
+  document.getElementById('current-year').textContent = new Date().getFullYear();
 });
